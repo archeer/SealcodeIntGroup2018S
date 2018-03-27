@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script>
+	function filter(t, fnc) {
+	var newArr=[];
+	for (var i=0; i<t.length; i++) {
+		if (fnc(t[i]))
+			newArr.push(t[i]);
+	}
+	return newArr;
+	}
+	
+	not_equal = function(x) {
+		return x !== 3;
+	};
+	
+	var a = filter([1, 2, 3, "3", 4, 5], not_equal);
+	
+	console.log(a);
+	</script>
+  </head>
+  <body>
+  </body>
+</html>
