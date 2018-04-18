@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+	 <style>
+	 .square {
+	 width: 200px;
+	 height: 200px;
+	 background-color: red;
+	 margin-bottom: 5px;
+	 }
+	 </style>
+     <script>
+  function changeColor(e) {
+	return function() {
+	var square=document.getElementsByClassName("square")[e];
+	if (square.style.backgroundColor=="yellow")
+		square.style.backgroundColor="red";
+	else	
+	square.style.backgroundColor="yellow";
+	}
+  }
+  window.onload = function(){ 
+	var sdivs=document.getElementsByClassName("square");
+	for (var i=0; i<4; i++)
+	{
+     var sdiv=sdivs[i];
+	 sdiv.addEventListener('mouseover',changeColor(i));
+	 }
+  };
+  </script>
+  </head>
+  <body>
+  <div class="square"></div><div class="square"></div><div class="square"></div><div class="square"></div>
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+	 <style>
+	 #square {
+	 width: 200px;
+	 height: 200px;
+	 background-color: red;
+	 margin-bottom: 5px;
+	 }
+	 </style>
+     <script>
+  function changeColor(e) {
+	var square=document.getElementById("square");
+	if (square.style.backgroundColor=="yellow")
+		square.style.backgroundColor="red";
+	else	
+	square.style.backgroundColor="yellow";
+  }
+  window.onload = function(){ 
+    var sdiv=document.getElementById("square");
+     sdiv.onclick=changeColor;
+  };
+  </script>
+  </head>
+  <body>
+  <div id="square"></div>
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <script>
+        function save_inputs(){
+          var ul = document.getElementsByTagName("ul")[0];
+		  var li = document.createElement("li");
+		  var input1val = document.getElementById("input_1").value;
+		  var input2val = document.getElementById("input_2").value;
+		  li.innerText=input1val + " - " +input2val;
+		  ul.appendChild(li);
+        }
+     </script>
+  </head>
+  <body>
+    <input id="input_1" type="text" value="hasło"/>
+    </br>
+    <input id="input_2" type="password" value="masło"/>
+	</br>
+	<input type="button" onclick="save_inputs()" value="Save"/>
+  </br>
+  <h2> to zostało już wpisane: </h2>
+  <ul>
+    <li> hasło - masło </li>
+  </ul>
+  </body>
+</html>
