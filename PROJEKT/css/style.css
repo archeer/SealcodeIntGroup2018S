@@ -1,0 +1,57 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+	margin: 0;
+}
+
+#tasks {
+	margin-top: 20px;
+}
+
+#tasks table {
+	margin: 0  auto;
+}
+
+table  td {
+	width: 150px;
+	height: 35px;
+}
+
+fieldset {
+	border: none;
+	background-color: whitesmoke;
+	padding-bottom: 30px;
+	box-shadow: 0px 0 2px #ababab;
+}
+
+input[type=text] {
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.btn-rmv, .btn-add {
+    border: none;
+    color: white;
+    border-radius: 10%;
+	box-shadow: 0px 0 2px #ababab;
+	font-weight: bold;
+	padding: 6px 10px;
+}
+
+.btn-add {
+	background: #4CAF50;
+}
+
+.btn-rmv {
+	background: red;
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: whitesmoke;
+  text-align: center;
+}
