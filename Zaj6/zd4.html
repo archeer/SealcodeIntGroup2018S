@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Przykłady i ćwiczenia</title>
+	</head>
+	<body>
+		<h1 id="heading-one">Przykładowy nagłówek 1</h1>
+		<p id="paragraph-one">To jest przykład strony, która została zrobiona przy pomocy JS</p>
+		<span id="span-one">Uczymy się języka JavaScript.</span>
+		<br />
+		<p id="paragraph-two">Język JavaScript nie jest taki trudny.</p>
+		<span id="span-two">Czas trwania zajęć: 90 minut.</span>
+		<p id="paragraph-three">Technologie webowe</p>
+	<script>
+	var sentence = " Home sweet home ";
+	var el = document.getElementById('paragraph-one');
+	el.innerHTML = 'Jeśli zmienimy wszystkie znaki na wielkie ciąg będzie wyglądać tak: '+sentence.toUpperCase()+'.</br>Na 10. pozycji znajduje się znak: '+sentence.charAt(10)+".</br>Ciąg 'ee' znajduje się na miejscu: "+sentence.lastIndexOf('ee')+".</br>Ostatni indeks znaku 'e' to: "+sentence.lastIndexOf('e')+'.</br>Znaki od 8 do 14 to: '+sentence.substring(8,14)+'.</br>Po usunięciu niepotrzebnych spacji nasz ciąg wygląda tak: '+sentence.trim(8,14)+".</br>Po zmianie 'me' na 'w' nasz ciąg wygląda tak: "+sentence.replace('me','w')+'.</br>';
+	</script>
+	</body>
+</html>

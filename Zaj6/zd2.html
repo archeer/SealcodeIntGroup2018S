@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+	 <style>
+	 #square {
+	 width: 200px;
+	 height: 200px;
+	 background-color: red;
+	 margin-bottom: 5px;
+	 }
+	 </style>
+     <script>
+	 var timer;
+  function changeColor() {
+	var square=document.getElementById("square");
+	if (square.style.backgroundColor=="green")
+		square.style.backgroundColor="red";
+	else	
+	square.style.backgroundColor="green";
+  }
+  function setTimeoutF() {
+  timer=window.setInterval(changeColor,1000);
+  }
+  function stop() {
+  window.clearInterval(timer);
+  }
+  </script>
+  </head>
+  <body>
+  <div id="square"></div>
+ <button type="button" onclick="setTimeoutF()">Set Interval for 1s</button><button type="button" onclick="stop()">Stop</button>
+  </body>
+</html>

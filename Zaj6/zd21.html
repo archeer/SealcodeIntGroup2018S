@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+	 <style>
+	 #square {
+	 width: 200px;
+	 height: 200px;
+	 background-color: red;
+	 margin-bottom: 5px;
+	 }
+	 </style>
+     <script>
+	 var timer;
+  function changeColor() {
+	var square=document.getElementById("square");
+	if (square.style.backgroundColor=="green")
+		square.style.backgroundColor="red";
+	else	
+	square.style.backgroundColor="green";
+  }
+  function setTimeoutF() {
+  window.clearInterval(timer);
+  var sec=document.getElementById("intSec").value;
+  if (sec<0)
+  sec*=-1;
+  timer=window.setInterval(changeColor,sec*1000);
+  }
+  function stop() {
+  window.clearInterval(timer);
+  }
+  </script>
+  </head>
+  <body>
+  <div id="square"></div>
+ <input type="number" value="2" id="intSec"><button type="button" onclick="setTimeoutF()">Set Interval</button><button type="button" onclick="stop()">Stop</button>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+	 <style>
+	 #square {
+	 width: 200px;
+	 height: 200px;
+	 background-color: red;
+	 margin-bottom: 5px;
+	 }
+	 </style>
+     <script>
+	 var timer;
+  function changeColor() {
+	var square=document.getElementById("square");
+	square.style.backgroundColor="green";
+  }
+  function setTimeoutF() {
+  timer=window.setTimeout(changeColor,2000);
+  }
+  </script>
+  </head>
+  <body>
+  <div id="square"></div>
+ <button type="button" onclick="setTimeoutF()">Set Timeout for 2s</button>
+  </body>
+</html>

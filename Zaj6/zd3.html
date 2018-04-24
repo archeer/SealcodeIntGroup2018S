@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Przykłady i ćwiczenia</title>
+	</head>
+	<body>
+		<h1 id="heading-one">Przykładowy nagłówek 1</h1>
+		<p id="paragraph-one">To jest przykład strony, która została zrobiona przy pomocy JS</p>
+		<span id="span-one">Uczymy się języka JavaScript.</span>
+		<br />
+		<p id="paragraph-two">Język JavaScript nie jest taki trudny.</p>
+		<span id="span-two">Czas trwania zajęć: 90 minut.</span>
+		<p id="paragraph-three">Technologie webowe</p>
+	<script>
+	var daysOfWeek = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota'];
+	var months = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
+	var d = new Date();
+	var day = daysOfWeek[d.getDay()];
+	var month = months[d.getMonth()];
+	var dateOfBirth = new Date(1998,05, 29, 00, 00, 00); // ustawiamy datę z przeszłości w formacie: YYYY, MM, DD, HH, MM, SS
+	var difference = d.getTime() - dateOfBirth.getTime(); // wynik jest w milisekundach
+	var age = Math.round(difference / 31556900000); // dzielone całkowicie przez liczbę milisekund w roku (przy założeniu, że to nie jest rok przestępny)
+	var date = d.toDateString();
+	var el = document.getElementById('paragraph-three');
+	el.innerHTML = 'Dzisiaj jest: ' + day + '.' + '<br />' + 'Aktualny miesiąc: ' + month + '.' + '<br />' + 'Mój wiek w latach to: ' + age + '.' + '<br />' + 'Data wyświetlona w momencie wywołania metody: ' + date + '.';
+	</script>
+	</body>
+</html>
