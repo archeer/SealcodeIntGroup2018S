@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script>
+     function getapi() {
+       var urls= document.getElementById("urls");
+       var invalue = document.getElementById("in").value;
+       urls.innerHTML="";
+     axios.get('http://vps487563.ovh.net:44444/api/v1/kwasy/'+invalue)
+      .then(function (response) {
+        urls.innerHTML=response.data.data.source;
+      })
+      .catch(function (error) {
+        urls.innerHTML="Brak kwasu o tym ID";
+      });
+    }
+     </script>
+  </head>
+  <body>
+ <input type="text" id="in"></input><button type="button" onclick="getapi()">Szukaj</button>
+ <div id="urls"></div>
+  </body>
+</html>

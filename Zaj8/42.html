@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script>
+     function getapi() {
+       var urls= document.getElementById("urls");
+       urls.innerHTML="";
+     axios.get('http://vps487563.ovh.net:44444/api/v1/kwasy')
+      .then(function (response) {
+        for (var i=0; i<response.data.data.length; i++)
+        urls.innerHTML+=response.data.data[i].source + "</br>";
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+     </script>
+  </head>
+  <body>
+ <button type="button" onclick="getapi()">API</button>
+ <div id="urls"></div>
+  </body>
+</html>

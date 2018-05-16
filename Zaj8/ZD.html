@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script>
+     function posttoapi() {
+       var userv= document.getElementById("userin").value;
+       var titlev= document.getElementById("titlein").value;
+       var sourcev= document.getElementById("sourcein").value;
+       var sourcetypev= document.getElementById("sourcetypein").value;
+       var tagv= document.getElementById("tagin").value;
+     axios.post('http://vps487563.ovh.net:44444/api/v1/kwasy', {
+       user: userv,
+  source: sourcev,
+  source_type: sourcetypev,
+  title: titlev,
+  tag: tagv
+     })
+      .then(function (response) {
+        alert("Udało się");
+      })
+      .catch(function (error) {
+        alert("Nie udało się");
+      });
+    }
+     </script>
+  </head>
+  <body>
+ User: <input type="text" id="userin"></input></br>
+ Title: <input type="text" id="titlein"></input></br>
+ Source: <input type="text" id="sourcein"></input></br>
+ Source_type: <input type="text" id="sourcetypein"></input></br>
+ Tag: <input type="text" id="tagin"></input></br>
+ <button type="button" onclick="posttoapi()">Wyślij</button>
+ <div id="stat"></div>
+  </body>
+</html>
