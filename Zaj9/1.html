@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script>
+	 function getAll() {
+	 var list=document.getElementsByTagName("ul")[0];
+	 list.innerText='';
+	 axios.get('http://vps487563.ovh.net:44444/api/v1/kwasy')
+      .then(function (response) {
+		for (var i=0; i<response.data.data.length; i++)
+		{
+		var node = document.createElement("li");       
+		node.innerText=response.data.data[i].title;   
+node.id=response.data.data[i]._id;	
+node.addEventListener("click", select);	
+		list.appendChild(node); 
+		}
+      })
+      .catch(function (error) {
+        alert("Nie udało się");
+      });
+	 
+	 }
+	 
+	 function select() {
+		 var id= document.getElementById("idin");
+		 var userv= document.getElementById("userin");
+       var titlev= document.getElementById("titlein");
+       var sourcev= document.getElementById("sourcein");
+       var sourcetypev= document.getElementById("sourcetypein");
+       var tagv= document.getElementById("tagin");
+	   axios.get('http://vps487563.ovh.net:44444/api/v1/kwasy/'+this.id)
+      .then(function (response) {
+        id.value=response.data.data._id;
+		userv.value=response.data.data.user;
+		titlev.value=response.data.data.title;
+		sourcev.value=response.data.data.source;
+		sourcetypev.value=response.data.data.source_type;
+		tagv.value=response.data.data.tag;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+	 }
+	 
+     function put() {
+       var userv= document.getElementById("userin").value;
+       var titlev= document.getElementById("titlein").value;
+       var sourcev= document.getElementById("sourcein").value;
+       var sourcetypev= document.getElementById("sourcetypein").value;
+       var tagv= document.getElementById("tagin").value;
+     axios.put('http://vps487563.ovh.net:44444/api/v1/kwasy/'+idin.value, {
+       user: userv,
+  source: sourcev,
+  source_type: sourcetypev,
+  title: titlev,
+  tag: tagv
+     })
+      .then(function (response) {
+        alert("Udało się");
+      })
+      .catch(function (error) {
+        alert("Nie udało się");
+      });
+    }
+	
+	function deletek() {
+
+		document.getElementById("userin").value="";
+       document.getElementById("titlein").value="";
+       document.getElementById("sourcein").value="";
+       document.getElementById("sourcetypein").value="";
+       document.getElementById("tagin").value="";
+	   axios.delete('http://vps487563.ovh.net:44444/api/v1/kwasy/'+idin.value)
+      .then(function (response) {
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+	  document.getElementById("idin").value="";
+	}
+     </script>
+	 <style>
+	 #left
+	 {
+	 width: 200px;
+	 height: 600px;
+	 float:left;
+	 }
+	 
+	 li 
+	 {
+	 text-decoration: underline;
+	 }
+	 </style>
+  </head>
+  <body>
+  <div id="left"><button onclick="getAll()">Get all</button>
+  <ul>
+  </ul>
+  </div>
+  <div id="right">
+  ID: <input type="text" id="idin" readonly></input></br>
+ User: <input type="text" id="userin"></input></br>
+ Title: <input type="text" id="titlein"></input></br>
+ Source: <input type="text" id="sourcein"></input></br>
+ Source_type: <input type="text" id="sourcetypein"></input></br>
+ Tag: <input type="text" id="tagin"></input></br>
+<button onclick="put()">Put</button> <button onclick="deletek()">Delete</button>
+</div></body>
+</html>

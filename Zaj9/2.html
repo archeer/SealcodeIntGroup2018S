@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script type="text/javascript">
+window.onload = onloadp;
+	 function onloadp() 
+	 {
+	 	 axios({
+  method:'get',
+  url:'http://thecatapi.com/api/images/get?format=html&results_per_page=1'
+})
+  .then(function(response) {
+  document.getElementById('catimg').innerHTML=response.data;
+  });
+  
+  axios({
+  method:'get',
+  url:'https://catfact.ninja/fact'
+})
+  .then(function(response) {
+  //document.getElementById('catfact').innerHTML=response.data;
+  console.log(response.data);
+});
+	 }
+	 </script>
+	</head> 
+	 <body>
+		<div id="catimg"></div>
+		<div id="catfact"></div>
+	</body>
+</html>
