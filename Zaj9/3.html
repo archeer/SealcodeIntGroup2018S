@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script type="text/javascript">
+window.onload = onloadp;
+  function select() {
+    axios({
+    method:'get',
+    url:'https://api.chucknorris.io/jokes/random?category='+this.id
+    })
+    .then(function(response) {
+    document.getElementById('chuckimg').innerHTML="<img src='"+response.data.icon_url+"'>";
+    document.getElementById('chuckfact').innerHTML=response.data.value;
+    console.log(response.data);
+    });
+  }
+
+	 function onloadp()
+	 {
+     var list=document.getElementsByTagName("ul")[0];
+  	 list.innerText='';
+     axios({
+     method:'get',
+     url:'https://api.chucknorris.io/jokes/categories'
+   })
+        .then(function (response) {
+          for (var i=0; i<response.data.length; i++)
+          {
+          var node = document.createElement("li");
+          node.innerText=response.data[i];
+         node.id=response.data[i];
+         node.addEventListener("click", select);
+          list.appendChild(node);
+          }
+        })
+        .catch(function (error) {
+          alert("Nie udało się");
+        });
+	 }
+	 </script>
+	</head>
+	 <body>
+     <ul>
+     </ul>
+		<div id="chuckimg"></div>
+		<div id="chuckfact"></div>
+	</body>
+</html>
