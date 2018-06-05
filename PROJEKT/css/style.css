@@ -13,7 +13,7 @@ body {
 }
 
 table  td {
-	width: 150px;
+	width: 200px;
 	height: 35px;
 }
 
@@ -48,7 +48,7 @@ input[type=text] {
 }
 
 footer {
-  position: absolute;
+  padding: 3px;
   right: 0;
   bottom: 0;
   left: 0;
